@@ -6,15 +6,17 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
 
+        Application.Current.UserAppTheme = AppTheme.Light;
+
         // Barcode Option
-        this.cameraView.BarCodeOptions = new Camera.MAUI.ZXingHelper.BarcodeDecodeOptions
-        {
-            AutoRotate = true,
-            PossibleFormats = { ZXing.BarcodeFormat.QR_CODE },
-            ReadMultipleCodes = false,
-            TryHarder = true,
-            TryInverted = true
-        };
+        //this.cameraView.BarCodeOptions = new Camera.MAUI.ZXingHelper.BarcodeDecodeOptions
+        //{
+        //    AutoRotate = true,
+        //    PossibleFormats = { ZXing.BarcodeFormat.QR_CODE, ZXing.BarcodeFormat.CODABAR },
+        //    ReadMultipleCodes = false,
+        //    TryHarder = true,
+        //    TryInverted = true
+        //};
     }
 
     private void cameraView_CamerasLoaded(object sender, EventArgs e)
@@ -38,23 +40,6 @@ public partial class MainPage : ContentPage
     private void taskPhotoButton_Clicked(object sender, EventArgs e)
     {
         this.photoImage.Source = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
-    }
-
-    private void cameraView_BarcodeDetected(object sender, Camera.MAUI.ZXingHelper.BarcodeEventArgs args)
-    {
-        this.barcodeEntry.Text = args.Result[0].Text;
-    }
-
-    private void flashWsitch_Toggled(object sender, ToggledEventArgs e)
-    {
-        if (e.Value)
-        {
-            this.cameraView.FlashMode = Camera.MAUI.FlashMode.Enabled;
-        }
-        else
-        {
-            this.cameraView.FlashMode = Camera.MAUI.FlashMode.Disabled;
-        }
     }
 
     private void mirrorWsitch_Toggled(object sender, ToggledEventArgs e)

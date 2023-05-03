@@ -12,11 +12,11 @@
             VerticalOptions="Center">
             <cv:CameraView
                 x:Name="cameraView"
-                BarcodeDetected="cameraView_BarcodeDetected"
+                Margin="0"
                 CamerasLoaded="cameraView_CamerasLoaded"
-                FlashMode="Disabled"
-                HeightRequest="300"
-                WidthRequest="300" />
+                FlashMode="Auto"
+                HeightRequest="250"
+                WidthRequest="250" />
 
             <Button
                 x:Name="taskPhotoButton"
@@ -25,27 +25,18 @@
 
             <HorizontalStackLayout>
                 <Switch
-                    x:Name="flashWsitch"
-                    IsToggled="False"
-                    Toggled="flashWsitch_Toggled" />
-                <Label Text="Falsh" VerticalTextAlignment="Center" />
-                <Switch
                     x:Name="mirrorWsitch"
                     IsToggled="False"
+                    OnColor="Black"
+                    ThumbColor="Purple"
                     Toggled="mirrorWsitch_Toggled" />
                 <Label Text="Mirror" VerticalTextAlignment="Center" />
             </HorizontalStackLayout>
 
-            <Entry
-                x:Name="barcodeEntry"
-                HeightRequest="40"
-                Placeholder="barcode"
-                WidthRequest="200" />
-
             <Image
                 x:Name="photoImage"
-                HeightRequest="200"
-                WidthRequest="200" />
+                HeightRequest="220"
+                WidthRequest="220" />
 
         </VerticalStackLayout>
     </ScrollView>
